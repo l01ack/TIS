@@ -20,8 +20,6 @@ my_creds = ServiceAccountCredentials.from_json_keyfile_name('task.json', link) 	
 client = gspread.authorize(my_creds) 														#Запускаем клиент для связи с таблицами
 sheet_password = client.open('password').sheet1     #Подключение к таблице с паролем для поподания в админскую панель
 password=str(sheet_password.cell(10,6).value)      #Пароль для поподания в админскую панель
-sender_mail_log='matholympaid10@gmail.com' 	#Логин от почты отправителя
-sender_mail_psw='yuU-6XC-rvm-4mY' 			#Пароль от почты отправителя
 
 async def send_to_mail(): #Отправка результатов на Gmail почту
     smtp_obj = smtplib.SMTP('smtp.gmail.com', 587)
